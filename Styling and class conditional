@@ -1,0 +1,2 @@
+<div className="name" style={{color:5==5?'blue':'green'}}> class</div>
+<div className={5==5?'class100':'class200'}> class</div>
