@@ -1,0 +1,19 @@
+{
+       (
+           () => {
+        if (this.state.x) {
+          return (
+            <div>someCase</div>
+          )
+        } else if (!this.state.x) {
+          return (
+            <div>otherCase</div>
+          )
+        } else {
+          return (
+            <div>catch all</div>
+          )
+        }
+      }
+      )()
+}
