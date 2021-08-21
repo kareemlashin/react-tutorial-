@@ -1,0 +1,16 @@
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name:'kareem'
+    };
+  }
+change(){ 
+  this.setState({
+    name:'ali'
+
+  });
+}
+
+{this.state.name}
+<button onClick={()=>{this.change()}}>sub</button>
