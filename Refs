@@ -1,0 +1,3 @@
+    this.myRef = React.createRef();
+    return <div ref={this.myRef} />;
+    this.textInput.current.style.color="red";
