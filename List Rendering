@@ -1,0 +1,5 @@
+{
+data.map((d, idx)=>{
+         return (<li key={idx}>{d.name}</li>)
+})
+}
