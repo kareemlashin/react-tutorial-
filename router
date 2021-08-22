@@ -1,0 +1,25 @@
+npm install react-router-dom
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,NavLink 
+  } from "react-router-dom";
+  
+  
+  
+        <Router>
+          <NavLink to="/" activeClassName="act"></NavLink>
+          <NavLink to="/nav" activeClassName="act"></NavLink>
+          <NavLink to="/user" activeClassName="act"></NavLink>
+          <NavLink to="/header" activeClassName="act"></NavLink>
+          <NavLink to="/Teacher" activeClassName="act"></NavLink>
+          <Switch>
+            <Route path="/nav" component={Nav} />
+            <Route path="/user" component={User} />
+            <Route path="/header" component={Header} />
+            <Route path="/Teacher" component={Teacher} />
+            <Route path="/" component={Nav} />
+            <Route path="**" component={Nav} />
+          </Switch>
+        </Router>
