@@ -1,0 +1,88 @@
+npm i redux react-redux redux-thunk
+--------------------------------------------------------------
+--------------------------------------------------------------
+store/
+     action/
+           action.js
+     state.js
+     store.js
+-action.js
+export const oneUser = (user) => {
+    return(dispatch) => {
+        dispatch({
+            type: Types.one,
+            data: data
+        })
+}
+--------------------------------------------------------------
+--------------------------------------------------------------
+-state.js
+export const initialState2 = {
+    counter: 1,
+}
+--------------------------------------------------------------
+--------------------------------------------------------------
+-store.js
+import {
+    createStore,
+    applyMiddleware,
+    compose,
+     combineReducers
+} from 'redux';
+
+import thunk from 'redux-thunk';
+import {
+    initialState,initialState2
+} from './state'
+
+
+
+const reducers = (state = initialState, action) => {
+     if (action.type == 'get') {
+        return {
+            ...state,
+            data: state.counter
+        }
+
+    } else {
+        return state
+    }
+
+}
+const reducers2 = (state = initialState2, action) => {
+    if (action.type == 'increment') {
+        return {
+            ...state,
+            counter: state.counter + 1
+        }
+    } else{    return state
+}
+
+}
+const root=combineReducers({
+    reducers:reducers,
+    reducers2:reducers2
+});
+export default createStore(root, compose(applyMiddleware(thunk)))
+
+------------------------------------------------------ 
+------------------------------------------------------
+        Test content: {this.props.counter}
+
+
+const mapStateToProps = (state) => {
+  return {
+    counter: state.reducers2.counter,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: () => {
+      dispatch(increment())
+    },
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(component)
+
+------------------------------------------------------ 
+------------------------------------------------------
