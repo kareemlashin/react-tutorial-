@@ -1,0 +1,3 @@
+{this.props.match.params.id}
+<Link to={'/component/'+id}>component</Link> </div>
+<Route path="/component/:id" component={User} />
