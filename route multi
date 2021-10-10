@@ -1,52 +1,36 @@
-<Router>
-                <NavLink activeClassName="activea" to="/">
-                  home
-                </NavLink>
-                <NavLink activeClassName="activea" to="/Header">
-                  Header
-                </NavLink>
-                <NavLink activeClassName="activea" to="/Form">
-                  Form
-                </NavLink>
-                <NavLink activeClassName="activea" to="/Forms">
-                  Forms
-                </NavLink>
-                <NavLink activeClassName="activea" to="/Dynamic">
-                  Dynamic
-                </NavLink>
-                <NavLink activeClassName="activea" to="/StateMangeMent">
-                  StateMangeMent
-                </NavLink>
-                <Switch>
-                  <Route exact path="/" component={Nav} />
-                  <Route path={['/Header', '/Sup']}>
-                    <Guest>
-                      <Switch>
-                        <Route path="/Header" component={Header} />
-                        <Route path="/Sup" component={Sup} />
-                      </Switch>
-                    </Guest>
-                  </Route>
-                  <Route path={['/Form', '/Single/:id',"/Forms","/Dynamic"]}>
-                    <Sign>
-                      <Switch>
-                        <Route path="/Form" component={Form} />
-                        <Route path="/Single/:id" component={Single} />
-                        <Route path="/Forms" component={Forms} />
-                        <Route path="/Dynamic" component={Dynamic} />
-                      </Switch>
-                    </Sign>
-                  </Route>
-                  <Route path={['/StateMangeMent']}>
-                    <Dashboard>
-                      <Switch>
-                        <Route
-                          path="/StateMangeMent"
-                          component={StateMangeMent}
-                        />
-                      </Switch>
-                    </Dashboard>
-                  </Route>
-                  <Redirect path="*" to="/" />
-                </Switch>
-              </Router>
+      <Router>
+        <Link to="/Add">Add</Link>
+        <Link to="/About">About</Link>
+        <Link to="/Contact">Contact</Link>
+        <Link to="/Remove">Remove</Link>
+        <Link to="/Forms">Forms</Link>
+        <Link to="/Users/5">Users5</Link>
+        <Switch>
+
+          <Route path={["/Forms", "/About",'/Add']}>
+            <Admin>
+              <Switch>
+              <Route exact  path="/Add" component={Add} />
+                <Route path="/Forms" component={Forms} />
+                <Route path="/About" component={About} />
+      
+              </Switch>
+            </Admin>
+          </Route>
+
+          <Route path={["/Contact", "/Remove", "/Users/:id","/Links"]}>
+            <Guest>
+              <Switch>
+                <Route path="/Users/:id" component={Users} />
+                <Route path="/Contact" component={Contact} />
+                <Route path="/Remove" component={Remove} />
+                <Route path="/Links" component={Links} />
+              </Switch>
+            </Guest>
+          </Route>
+
+          <Redirect exact  path="/"  to="/Add"/>
+          <Redirect path="*" to="/Links" />
+
+        </Switch>
+      </Router>
